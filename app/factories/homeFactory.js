@@ -8,7 +8,7 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 		return $q( (resolve, reject) => {
 			$http.get(`${FirebaseUrl}/images.json`)
 			.then( (picData) => {
-				console.log(picData);
+				// console.log(picData);
 				resolve(picData);
 			})
 			.catch( (err) => {
@@ -17,7 +17,21 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 			});
 		});
 	};
-	
+
+	let getUserPics = (currentUser) => {
+		console.log("uid", currentUser);
+		return $q( (resolve, reject) => {
+			$http.get(`${FirebaseUrl}/pins/.json?orderBy="uid"&equalTo="${currentUser}"`)
+			.then( (picData) => {
+				resolve(picData);
+			})
+			.catch( (err) => {
+				reject(err);
+			});
+		});
+	};
+
+
 	let putPics = (pinnedPic) => {
 		console.log("you just hit pin it!");
 		return $q( (resolve, reject) => {
@@ -26,8 +40,8 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 			.then( (newPicData) => {
 				resolve(newPicData);
 			})
-			.catch( (error) => {
-				reject(error);
+			.catch( (err) => {
+				reject(err);
 			});
 		});
 	};
@@ -45,6 +59,7 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
+
 	let postNewPhotos = (newPic) => {
 		console.log("2");
 		return $q( (resolve, reject) => {
@@ -59,7 +74,10 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	return { getPics, putPics, postNewBoards, postNewPhotos };
+
+	return { getPics, putPics, getUserPics, postNewBoards, postNewPhotos };
+
+
 
 
 });
