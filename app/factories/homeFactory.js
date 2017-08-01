@@ -1,3 +1,4 @@
+	
 'use strict';
 
 pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
@@ -20,5 +21,3 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 	return { getPics };
 
 });
-
-			
