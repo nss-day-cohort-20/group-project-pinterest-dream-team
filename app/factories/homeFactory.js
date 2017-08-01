@@ -31,6 +31,7 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
+
 	let putPics = (pinnedPic) => {
 		console.log("you just hit pin it!");
 		return $q( (resolve, reject) => {

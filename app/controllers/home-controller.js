@@ -32,8 +32,10 @@ pinterestApp.controller("HomeController", function($scope, $window, PinterestFac
         pic.uid = currentUser;
         let pinnedPic = pic;
         // console.log(pinnedPic);
+
         PinterestFactory.putPics(pinnedPic);
-};
+  };
+
 
 
 });
