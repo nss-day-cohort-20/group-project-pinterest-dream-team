@@ -19,7 +19,7 @@ let isAuth = (UserFactory) => {
 pinterestApp.config( ($routeProvider) => {
   $routeProvider
   .when('/', {
-    templateUrl: 'partials/log-in.html',
+    templateUrl: 'partials/logIn.html',
     controller: 'UserController'
   })
   .when('/home', {
