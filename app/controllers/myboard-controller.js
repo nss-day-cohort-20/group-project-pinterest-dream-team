@@ -7,20 +7,20 @@ pinterestApp.controller("MyBoardController", function($scope, $window, Pinterest
     UserFactory.isAuthenticated(currentUser)
     .then( (user) => {
     currentUser = UserFactory.getUser();
-    fetchMyPics();
+    fetchMyBoards();
     });
 
-    function fetchMyPics() {
-        let myPicArr = [];
-        PinterestFactory.getUserPics(currentUser)
-        .then( (myPicList) => {
-            let myPicData = myPicList.data;
+    function fetchMyBoards() {
+        let myBoardsArr = [];
+        PinterestFactory.getBoards()
+        .then( (myBoardsList) => {
+            let myBoardsData = myBoardsList.data;
             // console.log("data", picList);
-            Object.keys(myPicData).forEach( (key) => {
-                myPicData[key].id = key;
-                myPicArr.push(myPicData[key]);
+            Object.keys(myBoardsData).forEach( (key) => {
+                myBoardsData[key].id = key;
+                myBoardsArr.push(myBoardsData[key]);
             });
-            $scope.myPics = myPicArr;
+            $scope.myBoards = myBoardsArr;
         })
         .catch( (err) => {
             console.log("error", err);
