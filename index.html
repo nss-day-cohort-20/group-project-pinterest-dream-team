@@ -9,7 +9,7 @@
 </head>
 <body ng-app="PinterestApp">
 
-  <div ng-include="'partials/navbar.html'">
+  <div ng-include="'partials/navbar.html'"></div>
 
   <div ng-view></div>
 
@@ -20,12 +20,21 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
    <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+  
+
   <!-- app files -->
   <script type="text/javascript" src="app/app.js"></script>
+
   <!-- providers -->
+  <script src="app/values/fb-creds.js"></script>
+  <script src="app/factories/user-factory.js"></script>
+
 
   <!-- controllers -->
   <script type="text/javascript" src="app/controllers/user-controller.js"></script>
+  <script src="app/controllers/nav-controller.js"></script>
+
 
 </body>
 </html>
