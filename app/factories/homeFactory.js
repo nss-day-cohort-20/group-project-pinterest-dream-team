@@ -59,7 +59,24 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
-	return { getPics, putPics, getUserPics, postNewBoards };
+
+	let postNewPhotos = (newPic) => {
+		console.log("2");
+		return $q( (resolve, reject) => {
+			$http.post(`${FirebaseUrl}/images.json`,
+				angular.toJson(newPic))
+			.then( (newPicData) => {
+				resolve(newPicData);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
+
+	return { getPics, putPics, getUserPics, postNewBoards, postNewPhotos };
+
 
 
 

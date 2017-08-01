@@ -1,0 +1,9 @@
+<div ng-controller="AddphotosController">
+  <h1>{{formTitle}}</h1>
+  <div class="form-group">
+    <label>Paste Image URL here</label>
+    <input type="text" placeholder="Image Title Goes Here" ng-model="createPic.title"/>
+    <input type="text" placeholder="Paste Image URL here" ng-model="createPic.url"/>
+  </div>
+  <button ng-click="uploadPhoto()">Upload</button>
+</div>
