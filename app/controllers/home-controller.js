@@ -4,7 +4,7 @@ pinterestApp.controller("HomeController", function($scope, $window, PinterestFac
 
     let currentUser = null;
 
-    UserFactory.isAuthenticated()
+    UserFactory.isAuthenticated(currentUser)
     .then( (user) => {
     currentUser = UserFactory.getUser();
     fetchPics();
@@ -12,7 +12,7 @@ pinterestApp.controller("HomeController", function($scope, $window, PinterestFac
 
     function fetchPics() {
         let picArr = [];
-        PinterestFactory.getPics(currentUser)
+        PinterestFactory.getPics()
         .then( (picList) => {
             console.log("data", picList);
             let picData = picList.data;

@@ -1,1 +1,15 @@
-<h1>home</h1>
+<div class="col s4" ng-controller="HomeController">
+  <div class="card" ng-repeat="pic in pics">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{pic.url}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{pic.title}}<i class="material-icons right">more_vert</i></span>
+      <p><a ng-href="#">Pin it</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{pic.title}}<i class="material-icons right">close</i></span>
+      <p>Made you look!</p>
+    </div>
+  </div>
+</div>
