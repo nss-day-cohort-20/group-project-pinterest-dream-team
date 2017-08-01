@@ -27,6 +27,11 @@ pinterestApp.config( ($routeProvider) => {
     controller: 'HomeController',
     resolve: {isAuth}
   })
+  .when('/create-board', {
+    templateUrl: 'partials/create-board.html',
+    controller: 'CreateBoardController',
+    resolve: {isAuth}
+  })
   .when('/my-board', {
     templateUrl: 'partials/my-board.html',
     controller: 'MyBoardController',

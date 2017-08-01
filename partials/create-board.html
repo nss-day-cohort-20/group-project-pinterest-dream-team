@@ -1,0 +1,8 @@
+<div ng-controller="CreateBoardController">
+  <h1>{{formTitle}}</h1>
+  <div class="form-group">
+    <label>Board Name</label>
+    <input type="text" placeholder="Name your board here" ng-model="createBoard.title"/>
+  </div>
+  <button ng-click="saveBoard()">Submit</button>
+</div>
