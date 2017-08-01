@@ -1,4 +1,3 @@
-	
 'use strict';
 
 pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
@@ -7,7 +6,7 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 		console.log("getPics");
 		// console.log(FirebaseUrl);
 		return $q( (resolve, reject) => {
-			$http.get(`${FirebaseUrl}images.json`)
+			$http.get(`${FirebaseUrl}/images.json`)
 			.then( (picData) => {
 				console.log(picData);
 				resolve(picData);

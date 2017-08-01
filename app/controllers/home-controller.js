@@ -1,13 +1,13 @@
 'use strict';
 
-pinterestApp.controller("HomeController", function($scope, $window, UserFactory) {
+pinterestApp.controller("HomeController", function($scope, $window, PinterestFactory, UserFactory) {
 
     let currentUser = null;
 
     UserFactory.isAuthenticated()
     .then( (user) => {
     currentUser = UserFactory.getUser();
-    fetchTodos();
+    fetchPics();
     });
 
     function fetchPics() {
@@ -15,6 +15,7 @@ pinterestApp.controller("HomeController", function($scope, $window, UserFactory)
         PinterestFactory.getPics(currentUser)
         .then( (picList) => {
             console.log("data", picList);
+            let picData = picList.data;
             Object.keys(picData).forEach( (key) => {
                 picData[key].id = key;
                 picArr.push(picData[key]);
