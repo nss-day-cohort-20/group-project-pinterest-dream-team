@@ -59,6 +59,7 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 		});
 	};
 
+
 	let getBoards = () => {
 		// console.log(FirebaseUrl);
 		return $q( (resolve, reject) => {
@@ -70,11 +71,27 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 			.catch( (err) => {
 				console.log("oops error");
 				reject(err);
+
+
+	let postNewPhotos = (newPic) => {
+		console.log("2");
+		return $q( (resolve, reject) => {
+			$http.post(`${FirebaseUrl}/images.json`,
+				angular.toJson(newPic))
+			.then( (newPicData) => {
+				resolve(newPicData);
+			})
+			.catch( (error) => {
+				reject(error);
 			});
 		});
 	};
 
-	return { getPics, putPics, getUserPics, postNewBoards, getBoards };
+
+
+	return { getPics, putPics, getUserPics, postNewBoards, postNewPhotos, getBoards };
+
+
 
 
 

@@ -37,5 +37,10 @@ pinterestApp.config( ($routeProvider) => {
     controller: 'MyBoardController',
     resolve: {isAuth}
   })
+  .when('/add-photo', {
+    templateUrl: 'partials/add-photo.html',
+    controller: 'AddphotosController',
+    resolve: {isAuth}
+  })
   .otherwise('/');
 });
