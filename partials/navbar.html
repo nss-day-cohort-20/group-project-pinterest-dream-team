@@ -1,11 +1,12 @@
-   <nav ng-controller="NavController">
-    <div class="nav-wrapper">
-      <a href="#/" class="brand-logo">Not Pinterested</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li ng-show="isLoggedIn"><a href="#!/home">Home</a></li>
-        <li ng-show="isLoggedIn"><a href="#!/my-board">My Board</a></li>
-        <li ng-show="isLoggedIn"><a href="#/" ng-click="logout()">Log Out</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav ng-controller="NavController">
+  <div class="nav-wrapper">
+    <a href="#/home" class="brand-logo">Not Pinterested</a>
+    <ul id="nav-mobile" class="right">
+      <li ng-show="isLoggedIn"><a href="#!/home">Home</a></li>
+      <li ng-show="isLoggedIn"><a href="#!/create-board">Create Board</a></li>
+      <li ng-show="isLoggedIn"><a href="#!/my-board">My Board</a></li>
+      <li ng-show="isLoggedIn"><a href="#/" ng-click="logout()">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
 
