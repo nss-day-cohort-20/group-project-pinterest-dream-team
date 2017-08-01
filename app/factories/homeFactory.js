@@ -17,6 +17,13 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl) {
 			});
 		});
 	};
-	return { getPics };
+	
+	let putPics = () => {
+		console.log("you just hit pin it!");
+	};
+	
+
+	return { getPics, putPics };
+
 
 });

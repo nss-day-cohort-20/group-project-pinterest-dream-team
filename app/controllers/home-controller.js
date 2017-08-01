@@ -27,5 +27,10 @@ pinterestApp.controller("HomeController", function($scope, $window, PinterestFac
         });
     }
 
+    $scope.pinPics = () => {
+        console.log(currentUser);
+        PinterestFactory.putPics();
+    };
+
 
 });
