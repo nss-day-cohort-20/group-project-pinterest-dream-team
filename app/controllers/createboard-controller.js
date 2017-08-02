@@ -7,7 +7,8 @@ pinterestApp.controller("CreateBoardController", function($scope, $window, UserF
     // need a function to get the user's ID
     uid: UserFactory.getUser(),
     // pulls the data from the text input on create-board.html
-    title: ""
+    title: "",
+    id: ""
   };
 
   $scope.saveBoard = () => {

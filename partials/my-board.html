@@ -1,11 +1,18 @@
-<div class="col s4" ng-controller="MyBoardController" ng-repeat="myBoard in myBoards">
-<div class="card blue-grey darken-1">
-  <div class="card-content white-text">
-    <span class="card-title">{{myBoard.title}}</span>
-  </div>
-  <div class="card-action">
-    <a href="#">This is a link</a>
-    <a href="#">This is a link</a>
-  </div>
+  <h1>in the board</h1>
+<div class="col s4" ng-repeat="pic in pics">
+
+
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{pic.url}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{pic.title}}<i class="material-icons right">more_vert</i></span>
+      <p><a ng-href="#!/home" ng-click="pinPics(pic)">Pin it</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{pic.title}}<i class="material-icons right">close</i></span>
+      <p>Made you look!</p>
+    </div>
   </div>
 </div>
