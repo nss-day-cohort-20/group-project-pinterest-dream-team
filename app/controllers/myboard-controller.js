@@ -45,4 +45,14 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
         });
     }
 
+    $scope.pinPics = (boardId, pic) => {
+        // console.log(pic);
+        pic.uid = currentUser;
+        pic.bid = boardId;
+        // pic.boardId = currentUser + uniqueId;
+        let pinnedPic = pic;
+        console.log("is this it", pinnedPic);
+        PinterestFactory.putPics(pinnedPic);
+  };
+
 });
