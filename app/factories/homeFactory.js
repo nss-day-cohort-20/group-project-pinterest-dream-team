@@ -97,26 +97,20 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 	};
 
 
-	let deletePhotos = (picId, picBid) => {
-		console.log("you hit delete", picId);
-		console.log("you hit delete", picBid);
+	let deletePhoto = (picfbid) => {
 		return $q( (resolve, reject) => {
-				console.log("???", picId);
-				$http.delete(`${FirebaseUrl}/pins`)
+				$http.delete(`${FirebaseUrl}/pins/${picfbid}.json`)
 				.then( (data) => {
-					console.log("??? part 2", data);
 					resolve(data);
 				})
 				.catch( (error) => {
 					reject(error);
 				});
-
-				console.log("no dice");
 		});
 	};
 
 
-	return { getPics, putPics, getUserPics, postNewBoards, postNewPhotos, getBoards, getSingleBoard, deletePhotos };
+	return { getPics, putPics, getUserPics, postNewBoards, postNewPhotos, getBoards, getSingleBoard, deletePhoto };
 
 
 
