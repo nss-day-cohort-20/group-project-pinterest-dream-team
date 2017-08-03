@@ -10,7 +10,9 @@
       <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
       <div ng-controller="MyBoardController">
         <ul>
+
           <li ng-repeat="board in myBoards"><a href="#!/home" ng-click="pinPics(board.id, pic)">{{board.title}}</a></li>
+
         </ul>
       </div>
     </div>
