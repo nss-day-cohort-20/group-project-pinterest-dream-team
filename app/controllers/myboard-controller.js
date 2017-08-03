@@ -4,8 +4,6 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
 
     let currentUser = null;
 
-
-
     UserFactory.isAuthenticated(currentUser)
     .then( (user) => {
     currentUser = UserFactory.getUser();
@@ -17,13 +15,10 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
         PinterestFactory.getBoards()
         .then( (myBoardsList) => {
             let myBoardsData = myBoardsList.data;
-            // console.log("data", picList);
             Object.keys(myBoardsData).forEach( (key) => {
                 myBoardsData[key].id = key;
                 myBoardsArr.push(myBoardsData[key]);
             });
-            // console.log("my board arr", myBoardsArr);
-            // PinterestFactory.getUserPics();
             $scope.myBoards = myBoardsArr;
         })
         .catch( (err) => {
@@ -33,17 +28,9 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
 
     $scope.fetchSingleBoard = function(boardId) {
         let myBoardsArr = [];
-        console.log("route board id", boardId);
         PinterestFactory.getSingleBoard(boardId)
         .then( (myBoardsList) => {
             let myBoardsData = myBoardsList.data;
-            console.log("data", myBoardsData);
-            // Object.keys(myBoardsData).forEach( (key) => {
-            //     myBoardsData[key].id = key;
-            //     myBoardsArr.push(myBoardsData[key]);
-            // });
-            console.log("board arr", myBoardsArr);
-            // fetchUserPics(boardId);
             $scope.myBoards = myBoardsData;
         })
         .catch( (err) => {
@@ -52,12 +39,9 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
     };
 
     $scope.pinPics = (boardId, pic) => {
-        // console.log(pic);
         pic.uid = currentUser;
         pic.bid = boardId;
-        // pic.boardId = currentUser + uniqueId;
         let pinnedPic = pic;
-        console.log("is this it", pinnedPic);
         PinterestFactory.putPics(pinnedPic);
   };
 

@@ -1,10 +1,5 @@
-  <h1>in the board</h1>
-<!-- <div ng-if="pic"> -->
-
-<div class="col s4" ng-controller="PinController">
-
-
-  <div class="card medium" ng-repeat="pic in myPics">
+<div class="col s12 m4 l3" ng-controller="PinController" ng-repeat="pic in myPics">
+  <div class="card small">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" ng-src="{{pic.url}}">
     </div>
@@ -14,9 +9,7 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">{{pic.title}}<i class="material-icons right">close</i></span>
-      <p>Made you look!</p>
+      <a class="btn halfway-fab waves-effect waves-light amber darken-4"><i class="material-icons">delete_forever</i></a>
     </div>
   </div>
 </div>
-
-<!-- </div> -->

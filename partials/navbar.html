@@ -1,8 +1,16 @@
 
 <nav ng-controller="NavController">
-  <div class="nav-wrapper">
+  <div class="nav-wrapper indigo darken-4">
     <a href="#/home" class="brand-logo">Not Pinterested</a>
-    <ul id="nav-mobile" class="right">
+    <a href="#" data-activates="mobile-demo" class="btn btn-floating btn-large amber darken-4 pulse button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li ng-show="isLoggedIn"><a href="#!/home">Home</a></li>
+      <li ng-show="isLoggedIn"><a href="#!/add-photo">Add Photos!</a></li>
+      <li ng-show="isLoggedIn"><a href="#!/create-board">Create Board</a></li>
+      <li ng-show="isLoggedIn"><a href="#!/my-board-list">My Board</a></li>
+      <li ng-show="isLoggedIn"><a href="#/" ng-click="logout()">Log Out</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
       <li ng-show="isLoggedIn"><a href="#!/home">Home</a></li>
       <li ng-show="isLoggedIn"><a href="#!/add-photo">Add Photos!</a></li>
       <li ng-show="isLoggedIn"><a href="#!/create-board">Create Board</a></li>
