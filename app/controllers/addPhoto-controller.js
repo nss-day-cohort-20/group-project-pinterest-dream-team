@@ -17,4 +17,6 @@ pinterestApp.controller("AddphotosController", function($scope, $window, Pintere
 		});
 	};
 
+
+
 });

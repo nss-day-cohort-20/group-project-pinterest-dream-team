@@ -26,4 +26,18 @@ pinterestApp.controller("PinController", function($scope, $window, $routeParams,
         });
     }
 
+    $scope.deleteThisPhoto = (picId, picBid) => {
+        console.log(picId);
+        console.log(picBid);
+
+        PinterestFactory.deletePhotos(picId, picBid).
+        then( (data) => {
+            console.log("its working", data);
+            // $scope.getMyPics();
+        })
+        .catch( (data) => {
+            console.log("nice try", data);
+        });
+    };
+
 });
