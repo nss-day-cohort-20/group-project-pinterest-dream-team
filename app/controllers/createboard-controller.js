@@ -14,8 +14,8 @@ pinterestApp.controller("CreateBoardController", function($scope, $window, UserF
   $scope.saveBoard = () => {
     PinterestFactory.postNewBoards($scope.createBoard)
     .then( (data) => {
+      $window.location.href = '#!/my-board-list';
       console.log("Board Data", data);
-      $window.location.href = '#!/my-board';
     });
   };
 
