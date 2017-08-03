@@ -4,12 +4,9 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 
 
 	let getPics = () => {
-		console.log("getPics");
-		// console.log(FirebaseUrl);
 		return $q( (resolve, reject) => {
 			$http.get(`${FirebaseUrl}/images.json`)
 			.then( (picData) => {
-				// console.log(picData);
 				resolve(picData);
 			})
 			.catch( (err) => {
@@ -20,11 +17,9 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 	};
 
 	let getUserPics = (boardId) => {
-		console.log("boardid", boardId);
 		return $q( (resolve, reject) => {
 			$http.get(`${FirebaseUrl}/pins.json?orderBy="bid"&equalTo="${boardId}"`)
 			.then( (boardPicData) => {
-				console.log("pic data", boardPicData.data);
 				resolve(boardPicData);
 			})
 			.catch( (err) => {
@@ -35,7 +30,6 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 
 
 	let putPics = (pinnedPic) => {
-		console.log("you just hit pin it!");
 		return $q( (resolve, reject) => {
 			$http.post(`${FirebaseUrl}/pins.json`,
 				angular.toJson(pinnedPic))
@@ -63,11 +57,9 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 
 
 	let getBoards = () => {
-		// console.log(FirebaseUrl);
 		return $q( (resolve, reject) => {
 			$http.get(`${FirebaseUrl}/boards.json?orderBy="uid"&equalTo="${UserFactory.getUser()}"`)
 			.then( (boardData) => {
-				// console.log(picData);
 				resolve(boardData);
 			})
 			.catch( (err) => {
@@ -78,11 +70,9 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 	};
 
 	let getSingleBoard = (boardId) => {
-		console.log("boardId", boardId);
 		return $q( (resolve, reject) => {
 			$http.get(`${FirebaseUrl}/boards/${boardId}.json`)
 			.then( (boardData) => {
-				// console.log(picData);
 				resolve(boardData);
 			})
 			.catch( (err) => {
@@ -94,7 +84,6 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 
 
 	let postNewPhotos = (newPic) => {
-		console.log("2");
 		return $q( (resolve, reject) => {
 			$http.post(`${FirebaseUrl}/images.json`,
 				angular.toJson(newPic))

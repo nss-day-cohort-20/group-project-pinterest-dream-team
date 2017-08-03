@@ -1,10 +1,5 @@
-  <h1>in the board</h1>
-<!-- <div ng-if="pic"> -->
-
-<div class="col s4" ng-controller="PinController">
-
-
-  <div class="card medium" ng-repeat="pic in myPics">
+<div class="col s12 m4 l3" ng-controller="PinController" ng-repeat="pic in myPics">
+  <div class="card small">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" ng-src="{{pic.url}}">
     </div>
@@ -18,5 +13,3 @@
     </div>
   </div>
 </div>
-
-<!-- </div> -->

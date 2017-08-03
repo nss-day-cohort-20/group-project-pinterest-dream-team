@@ -15,12 +15,10 @@ pinterestApp.controller("HomeController", function($scope, $window, PinterestFac
         PinterestFactory.getPics()
         .then( (picList) => {
             let picData = picList.data;
-            // console.log("data", picList);
             Object.keys(picData).forEach( (key) => {
                 picData[key].id = key;
                 picArr.push(picData[key]);
             });
-            console.log("pic arr", picArr);
             $scope.pics = picArr;
         })
         .catch( (err) => {
@@ -29,13 +27,11 @@ pinterestApp.controller("HomeController", function($scope, $window, PinterestFac
     }
 
     $scope.pinPics = (boardId, pic) => {
-        // console.log(pic);
         pic.uid = currentUser;
         pic.bid = boardId;
         let pinnedPic = pic;
-        // console.log(pinnedPic);
         PinterestFactory.putPics(pinnedPic, boardId);
-  };
+    };
 
 
 });

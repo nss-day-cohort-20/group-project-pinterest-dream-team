@@ -11,10 +11,8 @@ pinterestApp.controller("AddphotosController", function($scope, $window, Pintere
 
 
 	$scope.uploadPhoto = () => {
-		console.log("1");
 		PinterestFactory.postNewPhotos($scope.createPic)
 		.then( (data) => {
-			console.log("did it work?", data);
 			$window.location.href = '#!/home';
 		});
 	};
