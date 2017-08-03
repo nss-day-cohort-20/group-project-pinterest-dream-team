@@ -2,6 +2,7 @@
 
 pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFactory) {
 
+
 	let getPics = () => {
 		console.log("getPics");
 		// console.log(FirebaseUrl);
@@ -18,12 +19,13 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 		});
 	};
 
-	let getUserPics = (currentUser) => {
-		console.log("uid", currentUser);
+	let getUserPics = (boardId) => {
+		console.log("boardid", boardId);
 		return $q( (resolve, reject) => {
-			$http.get(`${FirebaseUrl}/pins.json?orderBy="uid"&equalTo="${currentUser}"`)
-			.then( (picData) => {
-				resolve(picData);
+			$http.get(`${FirebaseUrl}/pins.json?orderBy="bid"&equalTo="${boardId}"`)
+			.then( (boardPicData) => {
+				console.log("pic data", boardPicData.data);
+				resolve(boardPicData);
 			})
 			.catch( (err) => {
 				reject(err);
@@ -76,9 +78,9 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 	};
 
 	let getSingleBoard = (boardId) => {
-		// console.log(FirebaseUrl);
+		console.log("boardId", boardId);
 		return $q( (resolve, reject) => {
-			$http.get(`${FirebaseUrl}/boards/${boardId}.json"`)
+			$http.get(`${FirebaseUrl}/boards/${boardId}.json`)
 			.then( (boardData) => {
 				// console.log(picData);
 				resolve(boardData);
@@ -107,7 +109,7 @@ pinterestApp.factory("PinterestFactory", function($q, $http, FirebaseUrl, UserFa
 
 
 
-	return { getPics, putPics, getUserPics, postNewBoards, postNewPhotos, getBoards };
+	return { getPics, putPics, getUserPics, postNewBoards, postNewPhotos, getBoards, getSingleBoard, };
 
 
 
