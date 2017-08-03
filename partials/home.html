@@ -1,7 +1,7 @@
 <div class="col m4" ng-repeat="pic in pics">
   <div class="card large">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="{{pic.url}}">
+      <img class="activator" ng-src="{{pic.url}}">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{pic.title}}<i class="material-icons right">more_vert</i></span>
@@ -10,7 +10,7 @@
       <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
       <div ng-controller="MyBoardController">
         <ul>
-          <li ng-repeat="board in myBoards"><a href="#">{{board.title}}</a></li>
+          <li ng-repeat="board in myBoards"><a href="#!/home" ng-click="pinPics(board.id, pic)">{{board.title}}</a></li>
         </ul>
       </div>
     </div>

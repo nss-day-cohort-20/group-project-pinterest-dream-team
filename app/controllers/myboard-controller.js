@@ -4,6 +4,8 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
 
     let currentUser = null;
 
+
+
     UserFactory.isAuthenticated(currentUser)
     .then( (user) => {
     currentUser = UserFactory.getUser();
@@ -20,7 +22,8 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
                 myBoardsData[key].id = key;
                 myBoardsArr.push(myBoardsData[key]);
             });
-            console.log("my board arr", myBoardsArr);
+            // console.log("my board arr", myBoardsArr);
+            // PinterestFactory.getUserPics();
             $scope.myBoards = myBoardsArr;
         })
         .catch( (err) => {
@@ -28,21 +31,24 @@ pinterestApp.controller("MyBoardController", function($scope, $window, $routePar
         });
     }
 
-    function fetchSingleBoard() {
+    $scope.fetchSingleBoard = function(boardId) {
         let myBoardsArr = [];
-        PinterestFactory.getSingleBoard($routeParams.boardId)
+        console.log("route board id", boardId);
+        PinterestFactory.getSingleBoard(boardId)
         .then( (myBoardsList) => {
             let myBoardsData = myBoardsList.data;
-            // console.log("data", picList);
-            Object.keys(myBoardsData).forEach( (key) => {
-                myBoardsData[key].id = key;
-                myBoardsArr.push(myBoardsData[key]);
-            });
-            $scope.myBoards = myBoardsArr;
+            console.log("data", myBoardsData);
+            // Object.keys(myBoardsData).forEach( (key) => {
+            //     myBoardsData[key].id = key;
+            //     myBoardsArr.push(myBoardsData[key]);
+            // });
+            console.log("board arr", myBoardsArr);
+            // fetchUserPics(boardId);
+            $scope.myBoards = myBoardsData;
         })
         .catch( (err) => {
             console.log("error", err);
         });
-    }
+    };
 
 });
