@@ -1,4 +1,4 @@
-<div class="col s12 m4 l3" ng-controller="PinController" ng-repeat="pic in myPics">
+<div class="col s12 m4 l3" ng-repeat="pic in myPics">
   <div class="card small">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" ng-src="{{pic.url}}">
@@ -9,7 +9,7 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">{{pic.title}}<i class="material-icons right">close</i></span>
-      <a class="btn halfway-fab waves-effect waves-light amber darken-4" ng-click="deleteThisPhoto(pic.id, pic.bid)"><i class="material-icons">delete_forever</i></a>
+      <a class="btn halfway-fab waves-effect waves-light amber darken-4" ng-click="deleteThisPhoto(pic.fbid, pic.bid)"><i class="material-icons">delete_forever</i></a>
     </div>
   </div>
 </div>
