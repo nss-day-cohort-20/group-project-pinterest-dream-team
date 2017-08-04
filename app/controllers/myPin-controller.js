@@ -1,6 +1,6 @@
 'use strict';
 
-pinterestApp.controller("PinController", function($scope, $window, $routeParams, PinterestFactory, UserFactory) {
+pinterestApp.controller("PinController", function($timeout, $q, $scope, $window, $routeParams, PinterestFactory, UserFactory) {
 
     let currentUser = null;
 
@@ -15,28 +15,29 @@ pinterestApp.controller("PinController", function($scope, $window, $routeParams,
         let userPicArr = [];
         PinterestFactory.getUserPics(boardId)
         .then( (picList) => {
+            console.log("pic list", picList);
             let picData = picList.data;
             Object.keys(picData).forEach( (key) => {
+                // takes firebase id and stores it in object
+                picData[key].fbid = key;
                 userPicArr.push(picData[key]);
             });
-            $scope.myPics = userPicArr;
+            $timeout( function() {
+                $scope.myPics = userPicArr;
+                console.log("scope pics", $scope.myPics);
+                
+            }, 500);
         })
         .catch( (err) => {
             console.log("error", err);
         });
     }
 
-    $scope.deleteThisPhoto = (picId, picBid) => {
-        console.log(picId);
-        console.log(picBid);
-
-        PinterestFactory.deletePhotos(picId, picBid).
-        then( (data) => {
-            console.log("its working", data);
-            // $scope.getMyPics();
-        })
-        .catch( (data) => {
-            console.log("nice try", data);
+    $scope.deleteThisPhoto = (picfbid, picBid) => {
+        PinterestFactory.deletePhoto(picfbid)
+        .then( (data) => {
+            console.log("pic deleted", picBid);
+            fetchUserPics(picBid);
         });
     };
 

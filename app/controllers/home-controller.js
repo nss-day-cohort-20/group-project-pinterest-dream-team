@@ -19,7 +19,7 @@ pinterestApp.controller("HomeController", function($scope, $window, PinterestFac
                 picData[key].id = key;
                 picArr.push(picData[key]);
             });
-            $scope.pics = picArr;
+            $scope.pics = picArr.reverse();
         })
         .catch( (err) => {
             console.log("error", err);
