@@ -27,7 +27,6 @@ pinterestApp.controller("PinController", function($timeout, $q, $scope, $window,
                 console.log("scope pics", $scope.myPics);
                 
             }, 500);
-            // $scope.$apply();
         })
         .catch( (err) => {
             console.log("error", err);
@@ -39,12 +38,7 @@ pinterestApp.controller("PinController", function($timeout, $q, $scope, $window,
         .then( (data) => {
             console.log("pic deleted", picBid);
             fetchUserPics(picBid);
-        })
-        .catch( (error) => {
-            console.log("err", error);
         });
-
-
     };
 
 });
